@@ -16,6 +16,6 @@
   },
   "scripts": {
   "build": "tsc",
-  "start": "node ./dist/application.js"
+  "start": "node ./index.js"
   }
 }
