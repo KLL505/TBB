@@ -1,21 +1,27 @@
 {
   "name": "tbb",
   "version": "1.0.0",
-  "description": "",
+  "description": "Discord Bot",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "start": "node ./index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Kenneth Ly",
   "license": "ISC",
   "dependencies": {
     "dis": "^0.3.7",
     "discord.js": "^14.7.1",
     "dotenv": "^16.0.3"
   },
-  "scripts": {
-  "build": "tsc",
-  "start": "node ./index.js"
-  }
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KLL505/TBB.git"
+  },
+  "bugs": {
+    "url": "https://github.com/KLL505/TBB/issues"
+  },
+  "homepage": "https://github.com/KLL505/TBB#readme"
 }
