@@ -11,7 +11,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const discord_js_1 = require("discord.js");
 const simpleWolframAPI = "http://api.wolframalpha.com/v1/result?appid=" + process.env.WOLFRAMAPPID;
-//let WolframAPI = "http://api.wolframalpha.com/v1/result?appid=YX4GA2-JRK9XL32QY&i=How+far+is+Los+Angeles+from+New+York%3f"
 module.exports = {
     data: new discord_js_1.SlashCommandBuilder()
         .setName('ask')

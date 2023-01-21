@@ -41,14 +41,19 @@ const dotenv_1 = __importDefault(require("dotenv"));
 const fs_1 = __importDefault(require("fs"));
 const path_1 = __importDefault(require("path"));
 dotenv_1.default.config();
-const client = new discord_js_1.default.Client({
+class Client extends discord_js_1.default.Client {
+    constructor() {
+        super(...arguments);
+        this.commands = new discord_js_1.Collection();
+    }
+}
+var client = new Client({
     intents: [
         discord_js_1.GatewayIntentBits.Guilds,
         discord_js_1.GatewayIntentBits.GuildMessages,
         discord_js_1.GatewayIntentBits.MessageContent
-    ],
+    ]
 });
-client.commands = new discord_js_1.Collection();
 const commandsPath = path_1.default.join(__dirname, 'commands');
 const commandFiles = fs_1.default.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
 for (const file of commandFiles) {
@@ -65,7 +70,7 @@ for (const file of commandFiles) {
 client.on(discord_js_1.Events.InteractionCreate, (interaction) => __awaiter(void 0, void 0, void 0, function* () {
     if (!interaction.isChatInputCommand())
         return;
-    const command = interaction.client.commands.get(interaction.commandName);
+    const command = client.commands.get(interaction.commandName);
     if (!command) {
         console_1.default.error(`No command matching ${interaction.commandName} was found.`);
         return;

@@ -5,15 +5,17 @@ import fs from 'fs'
 import path from 'path'
 dotenv.config()
 
-const client = new DiscordJS.Client({
+class Client extends DiscordJS.Client {
+    commands = new Collection()
+}
+
+var client = new Client({
     intents: [
         GatewayIntentBits.Guilds,
         GatewayIntentBits.GuildMessages,
         GatewayIntentBits.MessageContent
-    ],
+    ]
 });
-
-client.commands = new Collection();
 
 const commandsPath = path.join(__dirname, 'commands');
 const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
@@ -31,7 +33,7 @@ for (const file of commandFiles) {
 
 client.on(Events.InteractionCreate, async interaction => {
     if (!interaction.isChatInputCommand()) return;
-    const command = interaction.client.commands.get(interaction.commandName);
+    const command : any = client.commands.get(interaction.commandName);
     if (!command) {
 		console.error(`No command matching ${interaction.commandName} was found.`);
 		return;
