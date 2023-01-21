@@ -1,27 +1,31 @@
 {
-  "name": "tbb",
-  "version": "1.0.0",
-  "description": "Discord Bot",
-  "main": "index.js",
-  "scripts": {
-    "build": "tsc",
-    "start": "node ./index.js"
-  },
-  "keywords": [],
-  "author": "Kenneth Ly",
-  "license": "ISC",
-  "dependencies": {
-    "dis": "^0.3.7",
-    "discord.js": "^14.7.1",
-    "dotenv": "^16.0.3"
-  },
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/KLL505/TBB.git"
-  },
-  "bugs": {
-    "url": "https://github.com/KLL505/TBB/issues"
-  },
-  "homepage": "https://github.com/KLL505/TBB#readme"
+    "name": "tbb",
+    "version": "1.0.0",
+    "description": "Discord Bot",
+    "main": "index.js",
+    "scripts": {
+        "build": "tsc",
+        "start": "node ./deploy-commands.js && node ./index.js",
+        "dev": "tsc && node ./deploy-commands.js && node ./index.js "
+    },
+    "keywords": [],
+    "author": "Kenneth Ly",
+    "license": "ISC",
+    "dependencies": {
+        "dis": "^0.3.7",
+        "discord.js": "^14.7.1",
+        "dotenv": "^16.0.3"
+    },
+    "devDependencies": {
+        "ts-node": "^10.9.1",
+        "tsconfig-paths": "^4.1.2"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/KLL505/TBB.git"
+    },
+    "bugs": {
+        "url": "https://github.com/KLL505/TBB/issues"
+    },
+    "homepage": "https://github.com/KLL505/TBB#readme"
 }
