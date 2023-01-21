@@ -16,7 +16,7 @@ module.exports = {
             return res.text()
         }).then(data => {
             interaction.reply({
-                content:`Q: ${question}\nA: ${data}`
+                content:`Q: ${question}\n\n${data}`
             })
         });
 	},
