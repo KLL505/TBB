@@ -25,16 +25,15 @@ module.exports = {
             option.setName('question').setDescription('The question you want answered').setRequired(true)),
 
 	async execute(interaction : ChatInputCommandInteraction) {
+        await interaction.deferReply();
         var question : string = interaction.options.getString('question') ?? "";
         var query : string = solveWolframAPI + "&input=" + encodeURIComponent(question); 
         console.log("Solve: "+ query);
         fetch (query).then(async res => {
             var images : string[] = parseXML(await res.text());
-            var response :string =" " ;
-            images.forEach((src:string)=> response += src + '\n');
-            interaction.reply({
+            await interaction.editReply({
                 content:`Q: ${question}\n`
-            })
+            }).then()
             images.forEach((src:string)=> interaction.channel?.send(src));
         });
 	},

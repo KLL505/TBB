@@ -10,15 +10,16 @@ module.exports = {
             option.setName('question').setDescription('The question you want answered').setRequired(true)),
 
 	async execute(interaction : ChatInputCommandInteraction) {
+        await interaction.deferReply();
         var question : string = interaction.options.getString('question') ?? "";
         var query : string = simpleWolframAPI + "&i=" + encodeURIComponent(question); 
         console.log("Ask: "+ query);
         fetch (query).then(res => {
             return res.text()
-        }).then(data => {
+        }).then(async data => {
             if(data == 'Wolfram|Alpha did not understand your input')
                 data = "I can't answer that question, ask pouya"
-            interaction.reply({
+            await interaction.editReply({
                 content:`Q: ${question}\n\n${data}`
             })
         });
