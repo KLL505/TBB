@@ -1,5 +1,6 @@
 import { ChatInputCommandInteraction, SlashCommandBuilder } from 'discord.js'
 import xml2js from 'xml2js';
+import fetch from 'cross-fetch';
 
 const solveWolframAPI = "https://api.wolframalpha.com/v2/query?&podstate=Result__Step-by-step%20solution&format=image&appid=" + process.env.WOLFRAMAPPID;
 
