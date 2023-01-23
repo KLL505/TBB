@@ -11,11 +11,12 @@ module.exports = {
 	async execute(interaction : ChatInputCommandInteraction) {
         var question : string = interaction.options.getString('question') ?? "";
         var query : string = simpleWolframAPI + "&i=" + encodeURIComponent(question); 
+        console.log("Ask: "+ query);
         fetch (query).then(res => {
             return res.text()
         }).then(data => {
             interaction.reply({
-                content:`Q: ${question}\nA: ${data}`
+                content:`Q: ${question}\n\n ${data}`
             })
         });
 	},

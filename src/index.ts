@@ -48,7 +48,7 @@ client.on(Events.InteractionCreate, async interaction => {
 });
 
 client.on('ready',()=>{
-    console.log('Bot started')
+    console.log('Bot started\n')
 });
 
 client.on('messageCreate', (message)=>{
