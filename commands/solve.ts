@@ -12,7 +12,9 @@ function parseXML(xml : string):string[]{
             console.error(err);
             return;
         }
-        images = result.queryresult.pod.map((x : any)=>x.subpod.map((y : any )=>y.img[0].$.src)).flat();
+        images = result.queryresult.success ? result.queryresult.pod.map((x : any)=>x.subpod.map((y : any )=>y.img[0].$.src)).flat() 
+        : ["I can't answer that question, ask pouya"];
+
     });
     return images;
 }
