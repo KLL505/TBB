@@ -16,8 +16,10 @@ module.exports = {
         fetch (query).then(res => {
             return res.text()
         }).then(data => {
+            if(data == 'Wolfram|Alpha did not understand your input')
+                data = "I can't answer that question, ask pouya"
             interaction.reply({
-                content:`Q: ${question}\n\n ${data}`
+                content:`Q: ${question}\n\n${data}`
             })
         });
 	},
