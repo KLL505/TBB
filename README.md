@@ -1,2 +1,2 @@
 # Think Better Bot
-This is a personalized discord bot that uses the wolfram alpha api to answer any questions asked to it aswell as some additional features. 
+A personalized discord bot that uses the wolfram alpha API to answer questions, solve step by step math problems, hold conversations relating to a given problem, and provide detailed information on given topics. This bot was originally buiult as an inside joke between my friends and still has some additional functionality relating to that. It was built with typescript and uses functionality from the discord.js api, the wolfram alpha api, xml2js library, and the cross-fetch library.
