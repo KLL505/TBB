@@ -12,7 +12,7 @@ module.exports = {
                 return;
             }   
             const randomFile = files[Math.floor(Math.random() * files.length)];
-            interaction.reply({
+            interaction.editReply({
                 files: [`./assets/${randomFile}`]
             });
         });

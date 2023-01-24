@@ -25,7 +25,6 @@ module.exports = {
             option.setName('question').setDescription('The question you want answered').setRequired(true)),
 
 	async execute(interaction : ChatInputCommandInteraction) {
-        await interaction.deferReply();
         var question : string = interaction.options.getString('question') ?? "";
         var query : string = solveWolframAPI + "&input=" + encodeURIComponent(question); 
         console.log("Solve: "+ query);
