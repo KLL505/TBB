@@ -59,7 +59,7 @@ client.on('messageCreate', (message)=>{
         })
     }
     else if(message.author.username == 'Pou' ){
-        let x:number = Math.floor(Math.random() * 2);
+        let x:number = Math.floor(Math.random() * 4);
         let replies: string[] = [
             'Dumptruck Alert!',
             'Damn that shit be jiggling!!',
