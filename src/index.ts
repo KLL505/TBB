@@ -3,6 +3,7 @@ import DiscordJS, { Collection, Events, GatewayIntentBits } from 'discord.js'
 import dotenv from 'dotenv'
 import fs from 'fs'
 import path from 'path'
+import deploy from './deploy-commands'
 dotenv.config()
 
 class Client extends DiscordJS.Client {
@@ -16,6 +17,8 @@ var client = new Client({
         GatewayIntentBits.MessageContent
     ]
 });
+
+deploy();
 
 const commandsPath = path.join( process.cwd(), 'commands');
 const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
